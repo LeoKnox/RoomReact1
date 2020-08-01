@@ -19,6 +19,17 @@ namespace ReactRoom.Data
                 Length=5,
                 DateCreated = new System.DateTime(2020, 07, 31),
                 DateModified = new System.DateTime(2020, 07, 31)
+            },
+            new Room()
+            {
+                Id=2,
+                Name="Room1",
+                Floor="entry",
+                Wall="entry",
+                Width=7,
+                Length=8,
+                DateCreated = new System.DateTime(2020, 07, 31),
+                DateModified = new System.DateTime(2020, 07, 31)
             }
         };
     }
