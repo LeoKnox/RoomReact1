@@ -13,8 +13,8 @@ namespace ReactRoom.Data
             {
                 Id=1,
                 Name="Entry",
-                Floor="Entry",
-                Wall="Entry",
+                Floor="Entry_floor",
+                Wall="Entry_wall",
                 Width=5,
                 Length=5,
                 DateCreated = new System.DateTime(2020, 07, 31),
@@ -24,8 +24,8 @@ namespace ReactRoom.Data
             {
                 Id=2,
                 Name="Room1",
-                Floor="entry",
-                Wall="entry",
+                Floor="entry_floor",
+                Wall="entry_wall",
                 Width=7,
                 Length=8,
                 DateCreated = new System.DateTime(2020, 07, 31),
