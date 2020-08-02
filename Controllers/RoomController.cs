@@ -14,7 +14,7 @@ namespace ReactRoom.Controllers
         }
 
         [HttpGet("[action]")]
-        public IActionResult GetRooms()
+        public IActionResult GetAllRooms()
         {
             var allRooms = _service.GetAllRooms();
             return Ok(allRooms);
@@ -28,6 +28,13 @@ namespace ReactRoom.Controllers
                 _service.AddRoom(room);
             }
             return Ok();
+        }
+
+        [HttpPut("UpdateRoom/{id}")]
+        public IActionResult UpdateRoom(int id, [FromBody]Room room)
+        {
+            _service.updateRoom(id, room);
+            return Ok(room);
         }
     }
 }

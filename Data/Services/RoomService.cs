@@ -25,7 +25,15 @@ namespace ReactRoom.Data
 
         public void updateRoom(int roomId, Room room)
         {
-            throw new System.NotImplementedException();
+            var oldRoom = Data.Rooms.FirstOrDefault(n => n.Id == roomId);
+            if (oldRoom != null)
+            {
+                oldRoom.Name = room.Name;
+                oldRoom.Floor = room.Floor;
+                oldRoom.Wall = room.Wall;
+                oldRoom.Width = room.Width;
+                oldRoom.Length = room.Length;
+            }
         }
     }
 }
