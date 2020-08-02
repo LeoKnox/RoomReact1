@@ -16,10 +16,7 @@ namespace ReactRoom.Data
             throw new System.NotImplementedException();
         }
 
-        public List<Room> GetAllRooms()
-        {
-            return Data.Rooms.ToList();
-        }
+        public List<Room> GetAllRooms() => Data.Rooms.ToList();
 
         public Room GetRoomById(int roomId)
         {
