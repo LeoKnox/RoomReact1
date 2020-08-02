@@ -13,6 +13,13 @@ namespace ReactRoom.Controllers
             this._service = service;
         }
 
+        [HttpGet("[action]")]
+        public IActionResult GetRooms()
+        {
+            var allRooms = _service.GetAllRooms();
+            return Ok(allRooms);
+        }
+
         [HttpPost("AddRoom")]
         public IActionResult AddRoom([FromBody]Room room)
         {

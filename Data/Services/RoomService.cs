@@ -1,5 +1,6 @@
 ﻿using ReactRoom.Data.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ReactRoom.Data
 {
@@ -7,7 +8,7 @@ namespace ReactRoom.Data
     {
         public void AddRoom(Room room)
         {
-            throw new System.NotImplementedException();
+            Data.Rooms.Add(room);
         }
 
         public void DeleteRoom(int roomId)
@@ -17,7 +18,7 @@ namespace ReactRoom.Data
 
         public List<Room> GetAllRooms()
         {
-            throw new System.NotImplementedException();
+            return Data.Rooms.ToList();
         }
 
         public Room GetRoomById(int roomId)
