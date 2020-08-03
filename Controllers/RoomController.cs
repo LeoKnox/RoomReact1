@@ -36,5 +36,12 @@ namespace ReactRoom.Controllers
             _service.updateRoom(id, room);
             return Ok(room);
         }
+
+        [HttpDelete("DeleteRoom/{id}")]
+        public IActionResult DeleteRoom(int id)
+        {
+            _service.DeleteRoom(id);
+            return Ok();
+        }
     }
 }
