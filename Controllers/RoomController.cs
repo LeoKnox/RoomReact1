@@ -20,6 +20,13 @@ namespace ReactRoom.Controllers
             return Ok(allRooms);
         }
 
+        [HttpGet("SingleRoom/{id}")]
+        public IActionResult GetRoomById(int id)
+        {
+            var room = _service.GetRoomById(id);
+            return Ok(room);
+        }
+
         [HttpPost("AddRoom")]
         public IActionResult AddRoom([FromBody]Room room)
         {
