@@ -13,7 +13,11 @@ namespace ReactRoom.Data
 
         public void DeleteRoom(int roomId)
         {
-            throw new System.NotImplementedException();
+            var room = Data.Rooms.FirstOrDefault(n => n.Id == roomId);
+            if (room != null)
+            {
+                Data.Rooms.Remove(room);
+            }
         }
 
         public List<Room> GetAllRooms() => Data.Rooms.ToList();
