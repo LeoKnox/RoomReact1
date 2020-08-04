@@ -45,7 +45,7 @@ export class Rooms extends Component
                                 <td>{room.wall}</td>
                                 <td>{room.width}</td>
                                 <td>{room.length}</td>
-                                <td>{room.dateCreated}</td>
+                                <td>{new Date(room.dateCreated).toLocaleDateString()}</td>
                                 <td>-</td>
                             </tr>
                         ))
