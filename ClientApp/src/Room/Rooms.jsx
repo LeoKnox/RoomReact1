@@ -38,18 +38,17 @@ export class Rooms extends Component
                 </thead>
                 <tbody>
                     {
-                        /*
-                        rooms.map(room => {
+                        rooms.map(room => (
                             <tr key={room.Id}>
-                                <td>{room.Name}</td>
+                                <td>{room.name}</td>
                                 <td>{room.floor}</td>
                                 <td>{room.wall}</td>
                                 <td>{room.width}</td>
-                                <td>{room.height}</td>
-                                <td>{room.datecreated}</td>
+                                <td>{room.length}</td>
+                                <td>{room.dateCreated}</td>
                                 <td>-</td>
                             </tr>
-                        })*/
+                        ))
                     }
                 </tbody>
             </table>
