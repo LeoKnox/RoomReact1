@@ -17,7 +17,7 @@ export class Create extends Component {
 
     render() {
         return (
-            <div className="trip-form">
+            <div className="room-form">
                 <h3>Add New Room</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
@@ -52,7 +52,7 @@ export class Create extends Component {
                     </div>
                     <div className="col-md-6 col-sm-6 col-xs-12">
                         <div className="form-group">
-                            <label>Width</label>
+                            <label>Height</label>
                             <input
                                 type="number"
                                 className="form-control"
