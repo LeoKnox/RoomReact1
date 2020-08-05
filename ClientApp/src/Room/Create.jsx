@@ -1,8 +1,17 @@
 ﻿import React, { Component } from 'react';
+import axios from 'axios';
 
 export class Create extends Component {
     constructor(props) {
         super(props);
+
+        this.onChangeName = this.onChangeName.bind(this);
+        this.onChangeFloor = this.onChangeFloor.bind(this);
+        this.onChangeWall = this.onChangeWall.bind(this);
+        this.onChangeWidth = this.onChangeWidth.bind(this);
+        this.onChangeLength = this.onChangeLength.bind(this);
+        this.onChangeDateCreated = this.onChangeDateCreated.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             name: '',
@@ -15,6 +24,60 @@ export class Create extends Component {
         }
     }
 
+    onChangeName(e) {
+        this.setState({
+            name: e.target.value
+        });
+    }
+
+    onChangeFloor(e) {
+        this.setState({
+            floor: e.target.value
+        });
+    }
+
+    onChangeWall(e) {
+        this.setState({
+            wall: e.target.value
+        });
+    }
+
+    onChangeWidth(e) {
+        this.setState({
+            width: e.target.value
+        });
+    }
+
+    onChangeLength(e) {
+        this.setState({
+            length: e.target.value
+        });
+    }
+
+    onChangeDateCreated(e) {
+        this.setState({
+            dateCreated: e.target.value
+        });
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+        const { history } = this.props;
+
+        let roomObject = {
+            id: Math.floor(Math.random() * 1000),
+            name: this.state.name,
+            wall: this.state.wall,
+            width: this.state.width,
+            length: this.state.length,
+            dateCreated: this.state.dateCreated
+        }
+
+        axios.post("api/Room/AddRoom", roomObject).then(result => {
+            history.push('/room');
+        })
+    }
+
     render() {
         return (
             <div className="room-form">
@@ -25,6 +88,8 @@ export class Create extends Component {
                         <input
                             type="text"
                             className="form-control"
+                            value={this.state.name}
+                            onChange={this.onChamgeName}
                         />
                     </div>
                     <div className="form-group">
@@ -32,6 +97,8 @@ export class Create extends Component {
                         <input
                             type="text"
                             className="form-control"
+                            value={this.state.floor}
+                            onChange={this.onChamgeFloor}
                         />
                     </div>
                     <div className="form-group">
@@ -39,23 +106,29 @@ export class Create extends Component {
                         <input
                             type="text"
                             className="form-control"
+                            value={this.state.wall}
+                            onChange={this.onChamgeWall}
                         />
                     </div>
-                    <div className="col-md-6 col-sm-6 col-xs-12">
+                    <div className="col col-md-6 col-sm-6 col-xs-12">
                         <div className="form-group">
                             <label>Width</label>
                             <input
                                 type="number"
                                 className="form-control"
+                                value={this.state.width}
+                                onChange={this.onChangeWidth}
                             />
                         </div>
                     </div>
-                    <div className="col-md-6 col-sm-6 col-xs-12">
+                    <div className="col col-md-6 col-sm-6 col-xs-12">
                         <div className="form-group">
                             <label>Height</label>
                             <input
                                 type="number"
                                 className="form-control"
+                                value={this.state.length}
+                                onChange={this.onChangeHeight}
                             />
                         </div>
                     </div>
@@ -64,10 +137,12 @@ export class Create extends Component {
                         <input
                             type="date"
                             className="form-control"
+                            value={this.state.dateCreated}
+                            onChange={this.onChangeDateCreated}
                         />
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Add Room" className="btn" />
+                        <input type="submit" value="Add Room" className="btn btn-primary" />
                     </div>
                 </form>
             </div>
