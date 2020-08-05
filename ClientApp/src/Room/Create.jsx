@@ -14,11 +14,11 @@ export class Create extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            name: '',
-            floor: '',
-            wall: '',
-            width: null,
-            length: null,
+            name: 'tt',
+            floor: 'ww',
+            wall: 'ss',
+            width: 5,
+            length: 6,
             dateCreated: null,
             dateUpdated: null
         }
