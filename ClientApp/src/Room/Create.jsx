@@ -63,8 +63,9 @@ export class Create extends Component {
     }
 
     onSubmit(e) {
+        console.log("running ..");
         e.preventDefault();
-        const { history } = this.props;
+        const {history} = this.props;
 
         let roomObject = {
             Id: Math.floor(Math.random() * 1000),
@@ -76,7 +77,7 @@ export class Create extends Component {
             dateCreated: this.state.dateCreated
         }
 
-        console.log("onsubmit: " + roomObject);
+        console.log("onsubmit: " + roomObject.name);
 
         axios.post("api/Room/AddRoom", roomObject).then(result => {
             history.push('/rooms');
