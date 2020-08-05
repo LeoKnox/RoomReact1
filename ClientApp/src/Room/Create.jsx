@@ -65,7 +65,7 @@ export class Create extends Component {
         const { history } = this.props;
 
         let roomObject = {
-            id: Math.floor(Math.random() * 1000),
+            Id: Math.floor(Math.random() * 1000),
             name: this.state.name,
             wall: this.state.wall,
             width: this.state.width,
@@ -74,7 +74,7 @@ export class Create extends Component {
         }
 
         axios.post("api/Room/AddRoom", roomObject).then(result => {
-            history.push('/room');
+            history.push('/rooms');
         })
     }
 
