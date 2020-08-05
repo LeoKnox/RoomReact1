@@ -89,7 +89,7 @@ export class Create extends Component {
                             type="text"
                             className="form-control"
                             value={this.state.name}
-                            onChange={this.onChamgeName}
+                            onChange={this.onChangeName}
                         />
                     </div>
                     <div className="form-group">
@@ -98,7 +98,7 @@ export class Create extends Component {
                             type="text"
                             className="form-control"
                             value={this.state.floor}
-                            onChange={this.onChamgeFloor}
+                            onChange={this.onChangeFloor}
                         />
                     </div>
                     <div className="form-group">
@@ -107,7 +107,7 @@ export class Create extends Component {
                             type="text"
                             className="form-control"
                             value={this.state.wall}
-                            onChange={this.onChamgeWall}
+                            onChange={this.onChangeWall}
                         />
                     </div>
                     <div className="col col-md-6 col-sm-6 col-xs-12">
