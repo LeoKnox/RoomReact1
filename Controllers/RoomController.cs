@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ReactRoom.Data;
 using ReactRoom.Data.Models;
+using System;
 
 namespace ReactRoom.Controllers
 {
@@ -30,6 +31,8 @@ namespace ReactRoom.Controllers
         [HttpPost("AddRoom")]
         public IActionResult AddRoom([FromBody]Room room)
         {
+            room.DateModified=DateTime.Today;
+            room.DateCreated=DateTime.Today;
             if(room != null)
             {
                 _service.AddRoom(room);
