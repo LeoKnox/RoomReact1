@@ -40,6 +40,7 @@ export class Create extends Component {
         this.setState({
             wall: e.target.value
         });
+        console.log(e.target.value+"iiiii")
     }
 
     onChangeWidth(e) {
@@ -52,6 +53,7 @@ export class Create extends Component {
         this.setState({
             length: e.target.value
         });
+        console.log(e.target.value+"iiiii")
     }
 
     onChangeDateCreated(e) {
@@ -67,6 +69,7 @@ export class Create extends Component {
         let roomObject = {
             Id: Math.floor(Math.random() * 1000),
             name: this.state.name,
+            floor: this.state.floor,
             wall: this.state.wall,
             width: this.state.width,
             length: this.state.length,
@@ -123,12 +126,12 @@ export class Create extends Component {
                     </div>
                     <div className="col col-md-6 col-sm-6 col-xs-12">
                         <div className="form-group">
-                            <label>Height</label>
+                            <label>length</label>
                             <input
                                 type="number"
                                 className="form-control"
                                 value={this.state.length}
-                                onChange={this.onChangeHeight}
+                                onChange={this.onChangeLength}
                             />
                         </div>
                     </div>
