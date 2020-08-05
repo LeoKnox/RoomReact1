@@ -76,6 +76,8 @@ export class Create extends Component {
             dateCreated: this.state.dateCreated
         }
 
+        console.log("onsubmit: " + roomObject);
+
         axios.post("api/Room/AddRoom", roomObject).then(result => {
             history.push('/rooms');
         })
