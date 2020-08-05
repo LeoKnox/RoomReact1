@@ -63,7 +63,6 @@ export class Create extends Component {
     }
 
     onSubmit(e) {
-        console.log("running ..");
         e.preventDefault();
         const {history} = this.props;
 
@@ -74,10 +73,9 @@ export class Create extends Component {
             wall: this.state.wall,
             width: this.state.width,
             length: this.state.length,
-            dateCreated: this.state.dateCreated
+            dateCreated: this.state.dateCreated,
+            dateModified: this.state.dateCreated
         }
-
-        console.log("onsubmit: " + roomObject.name);
 
         axios.post("api/Room/AddRoom", roomObject).then(result => {
             history.push('/rooms');
