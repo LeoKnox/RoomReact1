@@ -7,7 +7,7 @@ namespace ReactRoom.Data
     {
         List<Room> GetAllRooms();
         Room GetRoomById(int roomId);
-        void updateRoom(int roomId, Room room);
+        void UpdateRoom(int roomId, Room room);
         void DeleteRoom(int roomId);
         void AddRoom(Room room);
     }

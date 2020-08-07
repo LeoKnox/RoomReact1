@@ -23,7 +23,7 @@ namespace ReactRoom.Data
         public List<Room> GetAllRooms() => Data.Rooms.ToList();
 
         public Room GetRoomById(int roomId) => Data.Rooms.FirstOrDefault(n => n.Id == roomId);
-        public void updateRoom(int roomId, Room room)
+        public void UpdateRoom(int roomId, Room room)
         {
             var oldRoom = Data.Rooms.FirstOrDefault(n => n.Id == roomId);
             if (oldRoom != null)
