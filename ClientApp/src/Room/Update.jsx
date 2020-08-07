@@ -93,7 +93,6 @@ export class Update extends Component {
             wall: this.state.wall,
             width: this.state.width,
             length: this.state.length,
-            dateCreated: this.state.dateCreated,
             dateModified: this.state.dateCreated
         }
 
@@ -166,8 +165,8 @@ export class Update extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <button onClick={this.onUpdateCancel} className="btn btn-success">Update</button>
-                        <button type="submit" className="btn btn-danger">Cancel</button>
+                        <button type="submit" className="btn btn-success">Update</button>
+                        <button onClick={this.onUpdateCancel} className="btn btn-danger">Cancel</button>
                     </div>
                 </form>
             </div>
