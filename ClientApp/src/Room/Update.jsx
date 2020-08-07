@@ -10,6 +10,7 @@ export class Update extends Component {
         this.onChangeWall = this.onChangeWall.bind(this);
         this.onChangeWidth = this.onChangeWidth.bind(this);
         this.onChangeDateCreated = this.onChangeDateCreated.bind(this);
+        this.onUpdateCancel = this.onUpdateCancel.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
@@ -21,6 +22,22 @@ export class Update extends Component {
             dateCreated: null,
             dateUpdated: null
         }
+    }
+    componentDidMount() {
+        const { id } = this.props.match.params;
+
+        axios.get("api/Room/SingRoom/" + id).then(room => {
+            const response = room.data;
+
+            this.setState({
+                name: response.name,
+                floor: response.floor,
+                wall: response.wall,
+                width: response.width,
+                length: response.length,
+                dateCreated: new Date(response.dateCreated).toISOString().slice(0,10)
+            })
+        })
     }
 
     onChangeName(e) {
@@ -59,12 +76,17 @@ export class Update extends Component {
         });
     }
 
+    onUpdateCancel() {
+        const { history } = this.props;
+        history.push('/rooms');
+    }
+
     onSubmit(e) {
         e.preventDefault();
         const { history } = this.props;
+        const { id } = this.props.match.params;
 
         let roomObject = {
-            Id: Math.floor(Math.random() * 1000),
             name: this.state.name,
             floor: this.state.floor,
             wall: this.state.wall,
@@ -74,7 +96,7 @@ export class Update extends Component {
             dateModified: this.state.dateCreated
         }
 
-        axios.post("api/Room/UpdateRoom", roomObject).then(result => {
+        axios.put("api/Room/UpdateRoom/"+id, roomObject).then(result => {
             history.push('/rooms');
         })
     }
@@ -143,7 +165,8 @@ export class Update extends Component {
                         />
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Update" className="btn btn-primary" />
+                        <button onClick={this.onUpdateCancel} className="btn btn-success">Update</button>
+                        <button type="submit" className="btn btn-danger">Cancel</button>
                     </div>
                 </form>
             </div>

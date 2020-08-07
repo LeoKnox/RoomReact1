@@ -40,7 +40,6 @@ export class Create extends Component {
         this.setState({
             wall: e.target.value
         });
-        console.log(e.target.value+"iiiii")
     }
 
     onChangeWidth(e) {
@@ -53,7 +52,6 @@ export class Create extends Component {
         this.setState({
             length: e.target.value
         });
-        console.log(e.target.value+"iiiii")
     }
 
     onChangeDateCreated(e) {
@@ -127,7 +125,7 @@ export class Create extends Component {
                     </div>
                     <div className="col col-md-6 col-sm-6 col-xs-12">
                         <div className="form-group">
-                            <label>length</label>
+                            <label>Length</label>
                             <input
                                 type="number"
                                 className="form-control"

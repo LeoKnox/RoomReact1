@@ -6,6 +6,7 @@ import { Home } from './components/Home';
 import './custom.css'
 import { Rooms } from './Room/Rooms';
 import { Create } from './Room/Create';
+import { Update } from './Room/Update';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -16,6 +17,7 @@ export default class App extends Component {
         <Route exact path='/' component={Home} />
         <Route path='/rooms' component={Rooms} />
         <Route path='/create' component={Create} />
+        <Route path='/update/:id' component={Update} />
       </Layout>
     );
   }
