@@ -6,6 +6,8 @@ export class Rooms extends Component
     constructor(props) {
         super(props);
 
+        this.onRoomUpdate = this.onRoomUpdate.bind(this);
+
         this.state = {
             rooms: [],
             loading: false
@@ -14,6 +16,11 @@ export class Rooms extends Component
 
     componentDidMount() {
         this.populateRoomsData();
+    }
+
+    onRoomUpdate(id) {
+        const { history } = this.props;
+        history.push('/update/' + id);
     }
 
     populateRoomsData() {
@@ -46,7 +53,13 @@ export class Rooms extends Component
                                 <td>{room.width}</td>
                                 <td>{room.length}</td>
                                 <td>{new Date(room.dateCreated).toLocaleDateString()}</td>
-                                <td>-</td>
+                                <td>
+                                    <div className="form-group">
+                                        <button onClick={() => this.onRoomUpdate(room.id)} className="btn btn-success">
+                                            Update
+                                        </button>
+                                    </div>
+                                </td>
                             </tr>
                         ))
                     }
