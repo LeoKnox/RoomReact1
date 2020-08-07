@@ -26,7 +26,7 @@ export class Update extends Component {
     componentDidMount() {
         const { id } = this.props.match.params;
 
-        axios.get("api/Room/SingRoom/" + id).then(room => {
+        axios.get("api/Room/SingleRoom/" + id).then(room => {
             const response = room.data;
 
             this.setState({
@@ -35,7 +35,8 @@ export class Update extends Component {
                 wall: response.wall,
                 width: response.width,
                 length: response.length,
-                dateCreated: new Date(response.dateCreated).toISOString().slice(0,10)
+                dateCreated: new Date(response.dateCreated).toISOString().slice(0,10),
+                dateUpdated: new Date(response.dateCreated).toISOString().slice(0,10)
             })
         })
     }
@@ -150,7 +151,7 @@ export class Update extends Component {
                             <input
                                 type="number"
                                 className="form-control"
-                                value={this.state.legnth}
+                                value={this.state.length}
                                 onChange={this.onChangeLength}
                             />
                         </div>
