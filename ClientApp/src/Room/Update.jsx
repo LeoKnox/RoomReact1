@@ -88,13 +88,17 @@ export class Update extends Component {
         const { id } = this.props.match.params;
 
         let roomObject = {
+            Id: 3,
             name: this.state.name,
             floor: this.state.floor,
             wall: this.state.wall,
             width: this.state.width,
             length: this.state.length,
+            dateCreated: this.state.dateCreated,
             dateModified: this.state.dateCreated
         }
+
+        console.log("3333" + Object.keys(roomObject));
 
         axios.put("api/Room/UpdateRoom/"+id, roomObject).then(result => {
             history.push('/rooms');
