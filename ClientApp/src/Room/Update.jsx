@@ -5,6 +5,9 @@ export class Update extends Component {
     constructor(props) {
         super(props);
 
+        this.onUpdateCancel = this.onUpdateCancel.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangeFloor = this.onChangeFloor.bind(this);
         this.onChangeWall = this.onChangeWall.bind(this);
@@ -36,7 +39,7 @@ export class Update extends Component {
                 width: response.width,
                 length: response.length,
                 dateCreated: new Date(response.dateCreated).toISOString().slice(0,10),
-                dateUpdated: new Date(response.dateCreated).toISOString().slice(0,10)
+                dateModified: new Date(response.dateCreated).toISOString().slice(0,10)
             })
         })
     }

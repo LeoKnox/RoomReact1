@@ -7,6 +7,7 @@ export class Rooms extends Component
         super(props);
 
         this.onRoomUpdate = this.onRoomUpdate.bind(this);
+        this.onRoomDelete = this.onRoomDelete.bind(this);
 
         this.state = {
             rooms: [],
@@ -21,6 +22,11 @@ export class Rooms extends Component
     onRoomUpdate(id) {
         const { history } = this.props;
         history.push('/update/' + id);
+    }
+
+    onRoomDelete(id) {
+        const { history } = this.props;
+        history.push('/delete/' + id);
     }
 
     populateRoomsData() {
@@ -57,6 +63,11 @@ export class Rooms extends Component
                                     <div className="form-group">
                                         <button onClick={() => this.onRoomUpdate(room.id)} className="btn btn-success">
                                             Update
+                                        </button>
+                                    </div>
+                                    <div className="form-group">
+                                        <button onClick={() => this.onRoomDelete(room.id)} className="btn btn-danger">
+                                            Delete
                                         </button>
                                     </div>
                                 </td>
