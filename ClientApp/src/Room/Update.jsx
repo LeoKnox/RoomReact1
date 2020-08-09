@@ -5,9 +5,6 @@ export class Update extends Component {
     constructor(props) {
         super(props);
 
-        this.onUpdateCancel = this.onUpdateCancel.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangeFloor = this.onChangeFloor.bind(this);
         this.onChangeWall = this.onChangeWall.bind(this);
@@ -26,8 +23,9 @@ export class Update extends Component {
             dateUpdated: null
         }
     }
+
     componentDidMount() {
-        const { id } = this.props.match.params;
+        const {id} = this.props.match.params;
 
         axios.get("api/Room/SingleRoom/" + id).then(room => {
             const response = room.data;
@@ -81,24 +79,22 @@ export class Update extends Component {
     }
 
     onUpdateCancel() {
-        const { history } = this.props;
+        const {history} = this.props;
         history.push('/rooms');
     }
 
     onSubmit(e) {
         e.preventDefault();
-        const { history } = this.props;
-        const { id } = this.props.match.params;
+        const {history} = this.props;
+        const {id} = this.props.match.params;
 
         let roomObject = {
-            Id: 3,
             name: this.state.name,
             floor: this.state.floor,
             wall: this.state.wall,
             width: this.state.width,
             length: this.state.length,
-            dateCreated: this.state.dateCreated,
-            dateModified: this.state.dateCreated
+            dateCreated: new Date(this.state.dateCreated).toISOString()
         }
 
         console.log("3333" + Object.keys(roomObject));
