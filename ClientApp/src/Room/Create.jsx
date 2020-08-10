@@ -17,7 +17,7 @@ export class Create extends Component {
             name: '',
             floor: '',
             wall: '',
-            width: null,
+            width: 3,
             length: 3,
             dateCreated: null,
             dateUpdated: null

@@ -85,6 +85,7 @@ export class Update extends Component {
 
     onSubmit(e) {
         e.preventDefault();
+        console.log("************ first");
         const {history} = this.props;
         const {id} = this.props.match.params;
 
@@ -94,9 +95,11 @@ export class Update extends Component {
             wall: this.state.wall,
             width: this.state.width,
             length: this.state.length,
-            dateCreated: this.state.dateCreated,
+            //dateCreated: this.state.dateCreated,
             dateModified: this.state.dateCreated,
         }
+
+        console.log("*************** second");
 
         axios.put("api/Room/UpdateRoom/"+id, roomObject).then(result => {
             history.push('/rooms');
