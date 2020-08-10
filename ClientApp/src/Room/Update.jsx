@@ -97,8 +97,6 @@ export class Update extends Component {
             dateCreated: new Date(this.state.dateCreated).toISOString()
         }
 
-        console.log("3333" + Object.keys(roomObject));
-
         axios.put("api/Room/UpdateRoom/"+id, roomObject).then(result => {
             history.push('/rooms');
         })
@@ -136,26 +134,28 @@ export class Update extends Component {
                             onChange={this.onChangeWall}
                         />
                     </div>
-                    <div className="col col-md-6 col-sm-6 cols-xs-12">
-                        <div className="form-group">
-                            <label>Width</label>
-                            <input
-                                type="number"
-                                className="form-control"
-                                value={this.state.width}
-                                onChange={this.onChangeWidth}
-                            />
+                    <div>
+                        <div className="col col-md-6 col-sm-6 cols-xs-12">
+                            <div className="form-group">
+                                <label>Width</label>
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    value={this.state.with}
+                                    onChange={this.onChangeWidth}
+                                />
+                            </div>
                         </div>
-                    </div>
-                    <div className="col col-md-6 col-sm-6 col-xs-12">
-                        <div className="form-group">
-                            <label>Length</label>
-                            <input
-                                type="number"
-                                className="form-control"
-                                value={this.state.length}
-                                onChange={this.onChangeLength}
-                            />
+                        <div className="col col-md-6 col-sm-6 col-xs-12">
+                            <div className="form-group">
+                                <label>Length</label>
+                                <input
+                                    type="number"
+                                    className="form-control"
+                                    value={this.state.length}
+                                    onChange={this.onChangeLength}
+                                />
+                            </div>
                         </div>
                     </div>
                     <div className="form-group">
