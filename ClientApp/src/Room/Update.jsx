@@ -95,7 +95,7 @@ export class Update extends Component {
             wall: this.state.wall,
             width: this.state.width,
             length: this.state.length,
-            //dateCreated: this.state.dateCreated,
+            dateCreated: this.state.dateCreated,
             dateModified: this.state.dateCreated,
         }
 
