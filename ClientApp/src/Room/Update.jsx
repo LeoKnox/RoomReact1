@@ -17,7 +17,7 @@ export class Update extends Component {
             name: '',
             floor: '',
             wall: '',
-            with: null,
+            width: null,
             length: null,
             dateCreated: null,
             dateUpdated: null
@@ -94,7 +94,8 @@ export class Update extends Component {
             wall: this.state.wall,
             width: this.state.width,
             length: this.state.length,
-            dateCreated: new Date(this.state.dateCreated).toISOString()
+            dateCreated: this.state.dateCreated,
+            dateModified: this.state.dateCreated,
         }
 
         axios.put("api/Room/UpdateRoom/"+id, roomObject).then(result => {
@@ -141,7 +142,7 @@ export class Update extends Component {
                                 <input
                                     type="number"
                                     className="form-control"
-                                    value={this.state.with}
+                                    value={this.state.width}
                                     onChange={this.onChangeWidth}
                                 />
                             </div>
