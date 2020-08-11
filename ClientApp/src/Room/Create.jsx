@@ -10,7 +10,6 @@ export class Create extends Component {
         this.onChangeWall = this.onChangeWall.bind(this);
         this.onChangeWidth = this.onChangeWidth.bind(this);
         this.onChangeLength = this.onChangeLength.bind(this);
-        this.onChangeDateCreated = this.onChangeDateCreated.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
@@ -18,9 +17,7 @@ export class Create extends Component {
             floor: '',
             wall: '',
             width: 3,
-            length: 3,
-            dateCreated: null,
-            dateUpdated: null
+            length: 3
         }
     }
 
@@ -70,9 +67,7 @@ export class Create extends Component {
             floor: this.state.floor,
             wall: this.state.wall,
             width: this.state.width,
-            length: this.state.length,
-            dateCreated: this.state.dateCreated,
-            dateModified: this.state.dateCreated
+            length: this.state.length
         }
 
         axios.post("api/Room/AddRoom", roomObject).then(result => {
@@ -133,15 +128,6 @@ export class Create extends Component {
                                 onChange={this.onChangeLength}
                             />
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <label>Date Created</label>
-                        <input
-                            type="date"
-                            className="form-control"
-                            value={this.state.dateCreated}
-                            onChange={this.onChangeDateCreated}
-                        />
                     </div>
                     <div className="form-group">
                         <input type="submit" value="Add Room" className="btn btn-primary" />
