@@ -70,6 +70,8 @@ export class Create extends Component {
             length: this.state.length
         }
 
+        console.log("******" + roomObject);
+
         axios.post("api/Room/AddRoom", roomObject).then(result => {
             history.push('/rooms');
         })
