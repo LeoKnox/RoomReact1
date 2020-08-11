@@ -85,7 +85,6 @@ export class Update extends Component {
 
     onSubmit(e) {
         e.preventDefault();
-        console.log("************ first");
         const {history} = this.props;
         const {id} = this.props.match.params;
 
@@ -93,13 +92,10 @@ export class Update extends Component {
             name: this.state.name,
             floor: this.state.floor,
             wall: this.state.wall,
-            width: this.state.width,
-            length: this.state.length,
-            dateCreated: this.state.dateCreated,
-            dateModified: this.state.dateCreated,
+            width: parseInt(this.state.width),
+            length: parseInt(this.state.length),
         }
 
-        console.log("*************** second");
 
         axios.put("api/Room/UpdateRoom/"+id, roomObject).then(result => {
             history.push('/rooms');
@@ -143,7 +139,7 @@ export class Update extends Component {
                             <div className="form-group">
                                 <label>Width</label>
                                 <input
-                                    type="number"
+                                    type="text"
                                     className="form-control"
                                     value={this.state.width}
                                     onChange={this.onChangeWidth}
@@ -154,7 +150,7 @@ export class Update extends Component {
                             <div className="form-group">
                                 <label>Length</label>
                                 <input
-                                    type="number"
+                                    type="text"
                                     className="form-control"
                                     value={this.state.length}
                                     onChange={this.onChangeLength}
