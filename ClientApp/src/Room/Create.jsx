@@ -16,7 +16,7 @@ export class Create extends Component {
             name: '',
             floor: '',
             wall: '',
-            width: 3,
+            width: null,
             length: 3
         }
     }
@@ -41,13 +41,13 @@ export class Create extends Component {
 
     onChangeWidth(e) {
         this.setState({
-            width: e.target.value
+            width: parseInt(e.target.value)
         });
     }
 
     onChangeLength(e) {
         this.setState({
-            length: e.target.value
+            length: parseInt(e.target.value)
         });
     }
 
@@ -113,7 +113,7 @@ export class Create extends Component {
                         <div className="form-group">
                             <label>Width</label>
                             <input
-                                type="number"
+                                type="text"
                                 className="form-control"
                                 value={this.state.width}
                                 onChange={this.onChangeWidth}
@@ -124,7 +124,7 @@ export class Create extends Component {
                         <div className="form-group">
                             <label>Length</label>
                             <input
-                                type="number"
+                                type="text"
                                 className="form-control"
                                 value={this.state.length}
                                 onChange={this.onChangeLength}
