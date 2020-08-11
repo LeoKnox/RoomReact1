@@ -47,6 +47,7 @@ export class Rooms extends Component
                     <th>Width</th>
                     <th>Height</th>
                     <th>Created</th>
+                    <th>Modified</th>
                     <th>Actions</th>
                 </thead>
                 <tbody>
@@ -59,6 +60,7 @@ export class Rooms extends Component
                                 <td>{room.width}</td>
                                 <td>{room.length}</td>
                                 <td>{new Date(room.dateCreated).toLocaleDateString()}</td>
+                                <td>{new Date(room.dateModified).toLocaleDateString()}</td>
                                 <td>
                                     <div className="form-group">
                                         <button onClick={() => this.onRoomUpdate(room.id)} className="btn btn-success">
